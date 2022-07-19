@@ -38,7 +38,7 @@ public:
     virtual u_result setPort(int port);
 
     virtual u_result setAddressFromString(const char * address_string,  address_type_t = ADDRESS_TYPE_INET);
-    virtual u_result getAddressAsString(char * buffer, size_t buffersize) const;
+    // virtual u_result getAddressAsString(char * buffer, size_t buffersize) const;
     
     virtual address_type_t getAddressType() const; 
 
