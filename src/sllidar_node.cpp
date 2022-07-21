@@ -77,7 +77,7 @@ class SLlidarNode : public rclcpp::Node
         this->declare_parameter<bool>("inverted", false);
         this->declare_parameter<bool>("angle_compensate", false);
         this->declare_parameter<std::string>("scan_mode","DenseBoost");
-        this->declare_parameter<float>("scan_frequency", 10.0);
+        this->declare_parameter<float>("scan_frequency", 20.0);
     }
 
     bool getSLLIDARDeviceInfo(ILidarDriver * drv)
