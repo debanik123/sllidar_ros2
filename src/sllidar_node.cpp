@@ -78,6 +78,19 @@ class SLlidarNode : public rclcpp::Node
         this->declare_parameter<bool>("angle_compensate", false);
         this->declare_parameter<std::string>("scan_mode","DenseBoost");
         this->declare_parameter<float>("scan_frequency", 20.0);
+
+        this->get_parameter_or<std::string>("channel_type", channel_type, "serial");
+        this->get_parameter_or<std::string>("tcp_ip", tcp_ip, "192.168.0.7"); 
+        this->get_parameter_or<int>("tcp_port", tcp_port, 20108);
+        this->get_parameter_or<std::string>("udp_ip", udp_ip, "192.168.11.2"); 
+        this->get_parameter_or<int>("udp_port", udp_port, 8089);
+        this->get_parameter_or<std::string>("serial_port", serial_port, "/dev/rplidars2"); 
+        this->get_parameter_or<int>("serial_baudrate", serial_baudrate, 1000000);//ros run for A1 A2, change to 256000 if A3
+        this->get_parameter_or<std::string>("frame_id", frame_id, "laser_link");
+        this->get_parameter_or<bool>("inverted", inverted, false);
+        this->get_parameter_or<bool>("angle_compensate", angle_compensate, false);
+        this->get_parameter_or<std::string>("scan_mode", scan_mode, std::string());
+        this->get_parameter_or<float>("scan_frequency", scan_frequency, 20.0);
     }
 
     bool getSLLIDARDeviceInfo(ILidarDriver * drv)
